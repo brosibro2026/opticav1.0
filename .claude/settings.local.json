@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(SERVICE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRnamdkYW11eWprdWVqa3JzZHJvIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Mzc4ODczNCwiZXhwIjoyMDg5MzY0NzM0fQ.hOOFipq52JPE3SeiOclTPMSeg-9h8sexOe7MQhGcMRw\")",
+      "Bash(BASE=\"https://tgjgdamuyjkuejkrsdro.supabase.co\")",
+      "Bash(USER_ID=\"33622fca-b1aa-40f1-8216-3df3e0df544f\")",
+      "Bash(__NEW_LINE_3fcddf2396a70eb2__ echo:*)",
+      "Bash(curl -s -X POST \"$BASE/rest/v1/user_roles\" -H \"apikey: $SERVICE_KEY\" -H \"Authorization: Bearer $SERVICE_KEY\" -H \"Content-Type: application/json\" -H \"Prefer: return=representation\" -d \"{\"\"user_id\"\": \"\"$USER_ID\"\", \"\"role\"\": \"\"employee\"\"}\")",
+      "Bash(npx localtunnel:*)",
+      "Bash(mkdir -p /c/Users/saave/AppData/Roaming/npm)",
+      "Bash(npx --yes localtunnel --port 8082)",
+      "Bash(curl:*)",
+      "Bash(ngrok version:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
