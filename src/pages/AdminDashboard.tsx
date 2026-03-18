@@ -234,7 +234,8 @@ export default function AdminDashboard() {
   // ── Fetch "Por Vendedora" data ───────────────────────────────────────────
   const fetchStats = useCallback(async () => {
     setLoadingStats(true);
-    const monthPrefix = format(startOfMonth(new Date()), 'yyyy-MM');
+    const monthStart = format(startOfMonth(new Date()), 'yyyy-MM-dd');
+    const today = format(new Date(), 'yyyy-MM-dd');
 
     const { data: profiles } = await supabase
       .from('profiles')
@@ -254,7 +255,8 @@ export default function AdminDashboard() {
     const { data: reports } = await supabase
       .from('daily_reports')
       .select('employee_id, total_valor_recibido, report_date')
-      .like('report_date', `${monthPrefix}%`)
+      .gte('report_date', monthStart)
+      .lte('report_date', today)
       .eq('is_submitted', true);
 
     const statsMap = new Map<string, { total_reports: number; total_valor: number }>();
