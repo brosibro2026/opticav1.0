@@ -350,7 +350,7 @@ export default function AdminEmployees() {
 
     const { data: reports, error: repError } = await supabase
       .from('daily_reports')
-      .select('id, employee_id, report_date, observaciones')
+      .select('id, employee_id, report_date')
       .in('employee_id', targetIds)
       .gte('report_date', expDesde)
       .lte('report_date', expHasta)
@@ -364,7 +364,7 @@ export default function AdminEmployees() {
 
     const { data: items, error: itemsError } = await supabase
       .from('report_items')
-      .select('report_id, item_name, hombre, mujer, nino, total, valor')
+      .select('report_id, item_name, hombre, mujer, nino, total, valor_recibido, observaciones')
       .in('report_id', reportIds);
 
     if (itemsError) throw itemsError;
@@ -379,8 +379,8 @@ export default function AdminEmployees() {
         mujer: item.mujer ?? 0,
         nino: item.nino ?? 0,
         total: item.total ?? 0,
-        valor: item.valor ?? 0,
-        observaciones: rep?.observaciones ?? '',
+        valor: item.valor_recibido ?? 0,
+        observaciones: item.observaciones ?? '',
       };
     });
 

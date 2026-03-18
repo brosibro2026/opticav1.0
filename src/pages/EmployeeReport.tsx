@@ -88,7 +88,7 @@ export default function EmployeeReport() {
         .select('id, is_submitted')
         .eq('employee_id', user.id)
         .eq('report_date', today)
-        .single();
+        .maybeSingle();
 
       if (report) {
         setReportId(report.id);
